@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversión Hexadecimal ↔ Binario</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #141E30, #243B55);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(0,0,0,0.4);
+      width: 100%;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .card {
+      background: #fff;
+      color: #222;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+      width: 420px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    input {
+      padding: 0.7rem;
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #243B55;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+    button {
+      background: #ffcc00;
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #222;
+      transition: all 0.3s ease;
+      margin: 0.5rem;
+    }
+    button:hover {
+      background: #11ee0d;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .resultado {
+      margin-top: 1.5rem;
+      text-align: left;
+      font-size: 1rem;
+      color: #222;
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 12px;
+      border-left: 6px solid #243B55;
+    }
+    .resultado p {
+      margin: 0.3rem 0;
+      font-family: monospace;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>✨ Conversión Hexadecimal ↔ Binario ✨</header>
+  
+  <div class="card">
+    <p>Convierte números entre <b>Hexadecimal</b> y <b>Binario</b>.</p>
+    
+    <!-- Hexadecimal a Binario -->
+    <input type="text" id="hexa" placeholder="Ingresa un número Hexadecimal">
+    <button onclick="hexaToBin()">Hexadecimal ➝ Binario</button>
+    
+    <p>Convierte números entre <b>binario</b> y <b>Hexadecimal</b>.</p>
+    <!-- Binario a Hexadecimal -->
+    <input type="text" id="binario" placeholder="Ingresa un número Binario">
+    <button onclick="binToHex()">Binario ➝ Hexadecimal</button>
+    
+    <div class="resultado" id="salida"></div>
+  </div>
+
+  <script>
+    function hexaToBin() {
+      const hexa = document.getElementById("hexa").value.trim();
+      try {
+        const binario = parseInt(hexa, 16).toString(2);
+        document.getElementById("salida").innerHTML = 
+          `<p><b>🔹 Hexadecimal:</b> ${hexa.toUpperCase()}</p>
+           <p><b>🔹 Binario:</b> ${binario}</p>`;
+      } catch {
+        document.getElementById("salida").innerHTML = "<p>⚠️ Ingresa un valor hexadecimal válido.</p>";
+      }
+    }
+
+    function binToHex() {
+      const binario = document.getElementById("binario").value.trim();
+      try {
+        const hexa = parseInt(binario, 2).toString(16).toUpperCase();
+        document.getElementById("salida").innerHTML = 
+          `<p><b>🔹 Binario:</b> ${binario}</p>
+           <p><b>🔹 Hexadecimal:</b> ${hexa}</p>`;
+      } catch {
+        document.getElementById("salida").innerHTML = "<p>⚠️ Ingresa un valor binario válido.</p>";
+      }
+    }
+  </script>
+</body>
+</html>

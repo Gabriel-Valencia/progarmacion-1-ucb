@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de Multiplicar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #141E30, #243B55);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(0,0,0,0.4);
+      width: 100%;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .card {
+      background: #fff;
+      color: #222;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+      width: 380px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    input {
+      padding: 0.7rem;
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #243B55;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+    button {
+      background: #ffcc00;
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #222;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #e6b800;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .resultado {
+      margin-top: 1.5rem;
+      text-align: left;
+      font-size: 1rem;
+      color: #222;
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 12px;
+      border-left: 6px solid #243B55;
+    }
+    .resultado p {
+      margin: 0.3rem 0;
+      font-family: monospace;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>✨ Tabla de Multiplicar ✨</header>
+  
+  <div class="card">
+    <p>Ingresa un número para ver su tabla de multiplicar hasta el 1000.</p>
+    <input type="number" id="numero" placeholder>
+    <button onclick="mostrarTabla()">Calcular</button>
+    
+    <div class="resultado" id="salida"></div>
+  </div>
+
+  <script>
+    function mostrarTabla() {
+      const n = parseInt(document.getElementById("numero").value);
+      if (isNaN(n)) {
+        document.getElementById("salida").innerHTML = "<p>⚠️ Ingresa un número válido.</p>";
+        return;
+      }
+
+      let i = 1;
+      let tabla = "";
+      while (i <= 10) {
+        tabla += `<p>${n} × ${i} = ${n * i}</p>`;
+        i++;
+      }
+
+      document.getElementById("salida").innerHTML = tabla;
+    }
+  </script>
+</body>
+</html>

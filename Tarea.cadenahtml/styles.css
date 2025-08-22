@@ -1,0 +1,214 @@
+:root{
+  /* Colores solicitados */
+  --color-primario: #FFCF15;
+  --color-secundario: #00477A;
+
+  /* Paleta derivada */
+  --bg: #f7fafc;
+  --text: #0b1a29;
+  --muted: #5b6b7c;
+  --card: #ffffff;
+  --border: #e6ebf0;
+
+  /* Tipografía y medidas */
+  --radius: 1.25rem;
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color: var(--text);
+  background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+  line-height:1.5;
+}
+
+.container{
+  width:min(1100px, 92vw);
+  margin-inline:auto;
+}
+
+/* Header */
+.site-header{
+  background: var(--color-secundario);
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:50;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: .9rem 0;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  margin:0;
+  font-weight:700;
+}
+.brand-mark{
+  display:inline-grid;
+  place-items:center;
+  width:2.2rem; height:2.2rem;
+  background: var(--color-primario);
+  color:#1c1c1c;
+  border-radius:.75rem;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.nav{
+  display:flex;
+  gap: .75rem;
+  flex-wrap:wrap;
+}
+.nav-link{
+  color:#fff;
+  text-decoration:none;
+  padding:.5rem .8rem;
+  border-radius:.6rem;
+  transition: transform .15s ease, background-color .2s ease, opacity .2s ease;
+}
+.nav-link:hover{
+  background-color: rgba(255,255,255,.12);
+  transform: translateY(-1px);
+}
+
+/* Main */
+.site-main{
+  padding: 2rem 0 3rem;
+}
+.card{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  margin-bottom: 1.25rem;
+}
+.card h2{
+  margin-top:0;
+}
+.card.subtle{
+  background: #fcfdff;
+}
+
+/* Inputs y acciones */
+.input-texto{
+  width:100%;
+  border:1.5px solid var(--border);
+  border-radius: 1rem;
+  padding: .9rem 1rem;
+  font: inherit;
+  outline: none;
+  resize: vertical;
+  min-height: 140px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.input-texto:focus{
+  border-color: var(--color-secundario);
+  box-shadow: 0 0 0 4px rgba(0,71,122,.12);
+}
+.lead{
+  color: var(--muted);
+  margin-top:.25rem;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-top: .9rem;
+}
+
+.btn{
+  border:none;
+  border-radius: .9rem;
+  padding: .7rem 1rem;
+  font: inherit;
+  cursor:pointer;
+  transition: transform .1s ease, box-shadow .15s ease, opacity .2s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn.primary{
+  background: var(--color-primario);
+  color:#1a1a1a;
+}
+.btn.secondary{
+  background: var(--color-secundario);
+  color:#fff;
+}
+.btn.ghost{
+  background: #eef5fb;
+  color: var(--color-secundario);
+}
+.btn.linklike{
+  background: transparent;
+  color: var(--muted);
+  text-decoration: underline;
+  box-shadow:none;
+  padding-inline:.4rem;
+}
+
+.resultado{
+  margin-top: 1rem;
+  background: #fff9e0;
+  border:1px dashed #e7d17a;
+  border-radius: .8rem;
+  padding: .9rem 1rem;
+}
+.resultado h3{
+  margin:0 0 .4rem 0;
+}
+
+/* Footer */
+.site-footer{
+  background: #062E4A; /* tono más oscuro del secundario para contraste */
+  color:#dfe8f0;
+  margin-top:auto;
+}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding: 1rem 0;
+}
+.to-top{
+  color:#dfe8f0;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.25);
+  padding:.35rem .6rem;
+  border-radius:.6rem;
+}
+.to-top:hover{ background: rgba(255,255,255,.08); }
+
+/* Accesibilidad visual */
+.sr-only{
+  position:absolute!important;
+  height:1px;width:1px;
+  overflow:hidden;
+  clip:rect(1px,1px,1px,1px);
+  white-space:nowrap;
+}
+
+/* Responsividad */
+@media (max-width: 720px){
+  .header-inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap:.6rem;
+  }
+  .nav{
+    gap:.25rem;
+  }
+}

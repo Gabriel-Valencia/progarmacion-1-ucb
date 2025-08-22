@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Utilidades de Cadenas – Programación 1</title>
+  <meta name="description" content="App responsiva para contar vocales, palabras y caracteres usando funciones de cadenas.js">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Cabecera -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">
+        <span class="brand-mark" aria-hidden="true">Aa</span>
+        Utilidades de Cadenas
+      </h1>
+      <nav class="nav" aria-label="Principal">
+        <a href="#herramienta" class="nav-link">Herramienta</a>
+        <a href="#como-usar" class="nav-link">Cómo usar</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main id="herramienta" class="site-main">
+    <div class="container">
+      <section class="card">
+        <h2>Analiza tu texto</h2>
+        <p class="lead">
+          Escribe un texto y usa los botones para ejecutar tus funciones de <code>cadenas.js</code>:
+          <strong>ContarVocales(palabra)</strong>, <strong>ContarPalabras(texto)</strong> y <strong>ContarCaracteres(texto)</strong>.
+        </p>
+
+        <label for="inputTexto" class="sr-only">Texto a analizar</label>
+        <textarea id="inputTexto" class="input-texto" rows="5" placeholder="Escribe aquí tu palabra o texto..."></textarea>
+
+        <div class="actions">
+          <button id="btnVocales" class="btn primary" type="button" title="Contar Vocales">
+            Contar Vocales
+          </button>
+          <button id="btnPalabras" class="btn secondary" type="button" title="Contar Palabras">
+            Contar Palabras
+          </button>
+          <button id="btnCaracteres" class="btn ghost" type="button" title="Contar Caracteres">
+            Contar Caracteres
+          </button>
+          <button id="btnLimpiar" class="btn linklike" type="button" title="Limpiar">Limpiar</button>
+        </div>
+
+        <div class="resultado" aria-live="polite" aria-atomic="true">
+          <h3>Resultado</h3>
+          <output id="salida" for="inputTexto">—</output>
+        </div>
+      </section>
+
+      <section id="como-usar" class="card subtle">
+        <h2>Cómo usar</h2>
+        <ol>
+          <li>Escribe una <em>palabra</em> para probar <code>ContarVocales(palabra)</code>.</li>
+          <li>Escribe un <em>texto completo</em> para usar <code>ContarPalabras(texto)</code> o <code>ContarCaracteres(texto)</code>.</li>
+          <li>Haz clic en el botón correspondiente y mira el resultado arriba.</li>
+        </ol>
+      </section>
+
+      <section id="contacto" class="card subtle">
+        <h2>Contacto</h2>
+        <p>Proyecto de práctica para Programación 1.</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="anio"></span> Utilidades de Cadenas — Programación 1</p>
+      <a href="#herramienta" class="to-top" title="Volver arriba">↑ Arriba</a>
+    </div>
+  </footer>
+
+  <!-- Importa PRIMERO tus funciones y algoritmos -->
+  <script src="cadenas.js"></script>
+  <!-- Luego nuestro controlador que las invoca -->
+  <script src="app.js"></script>
+</body>
+</html>

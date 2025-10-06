@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eef5fa;
+  color: #333;
+  margin: 20px;
+}
+h1 {
+  color: #004080;
+}
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background: #0056b3;
+}
+.bote, .sobrantes {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+.pasajero {
+  margin-left: 15px;
+}

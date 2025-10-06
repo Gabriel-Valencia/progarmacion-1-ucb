@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Jeidy Briceida ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      background: linear-gradient(to top, #ffc65b, #033962);
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    /* Flor central con tallo */
+    .flor-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: crecer 3s ease-out forwards;
+      transform: scale(6);
+    }
+
+    @keyframes crecer {
+      to { transform: scale(1); }
+    }
+
+    .tallo {
+      width: 20px;
+      height: 250px;
+      background: rgb(4, 224, 4);
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .raiz {
+      width: 80px;
+      height: 20px;
+      background: brown;
+      border-radius: 50%;
+      margin-top: -10px;
+    }
+
+    .flor {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin-bottom: -40px;
+      animation: girar 15s linear infinite;
+    }
+
+    .petalo {
+      width: 90px;
+      height: 140px;
+      background: yellow;
+      border-radius: 50% 50% 0 0;
+      position: absolute;
+      top: 40px;
+      left: 65px;
+      transform-origin: bottom center;
+      box-shadow: 0 0 20px rgba(21, 191, 2, 0.895);
+    }
+
+    .petalo:nth-child(1) { transform: rotate(0deg) translateY(-60px); }
+    .petalo:nth-child(2) { transform: rotate(45deg) translateY(-60px); }
+    .petalo:nth-child(3) { transform: rotate(90deg) translateY(-60px); }
+    .petalo:nth-child(4) { transform: rotate(135deg) translateY(-60px); }
+    .petalo:nth-child(5) { transform: rotate(180deg) translateY(-60px); }
+    .petalo:nth-child(6) { transform: rotate(225deg) translateY(-60px); }
+    .petalo:nth-child(7) { transform: rotate(270deg) translateY(-60px); }
+    .petalo:nth-child(8) { transform: rotate(315deg) translateY(-60px); }
+
+    .centro {
+      width: 120px;
+      height: 120px;
+      background: brown;
+      border-radius: 50%;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      box-shadow: 0 0 40px rgba(255, 200, 0, 1);
+    }
+
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Texto */
+    .mensaje {
+      margin-top: 10px;
+      font-size: 2.5em;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgb(247, 255, 5);
+      white-space: nowrap;
+    }
+
+    /* Botones */
+    .botones {
+      margin-top: 30px;
+      display: none;
+      gap: 40px;
+    }
+
+    .botones button {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1.5em;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgb(0, 8, 70);
+      transition: transform 0.2s;
+    }
+
+    .botones button:hover {
+      transform: scale(1.1);
+    }
+
+    .si {
+      background: #ff4081;
+      color: white;
+    }
+
+    .no {
+      background: #444;
+      color: rgb(255, 255, 255);
+    }
+
+    /* Girasoles y textos que caen */
+    .lluvia {
+      position: absolute;
+      font-size: 2em;
+      animation: caer 4s linear forwards;
+    }
+
+    @keyframes caer {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(100deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Flor con tallo y raíz -->
+  <div class="flor-container">
+    <div class="flor">
+      <div class="petalo"></div>
+      <div class="petalo"></div>
+      <div class="petalo"></div>
+      <div class="petalo"></div>
+      <div class="petalo"></div>
+      <div class="petalo"></div>
+      <div class="petalo"></div>
+      <div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="tallo"></div>
+    <div class="raiz"></div>
+  </div>
+
+  <!-- Mensaje -->
+  <div class="mensaje" id="mensaje"></div>
+
+  <!-- Botones -->
+  <div class="botones" id="botones">
+    <button class="si" onclick="acepto()">🌻acepto</button>
+    <button class="no" onclick="rechazo()"> 🌻No</button>
+  </div>
+
+  <!-- Música de Moisés -->
+  <audio id="musica" src="c:\Users\Lenovo\Downloads\musica.mp3"></audio>
+
+  <script>
+    const mensajes = [
+      "Jeidy Briceida Molina Veliz❤️",
+      "🌻Fuiste enviada por Dioz para ser mi conpañera de vida🌻", 
+      "¿Te casarías conmigo? 💍"
+    ];
+    let index = 0;
+    const mensajeDiv = document.getElementById("mensaje");
+    const botonesDiv = document.getElementById("botones");
+    const musica = document.getElementById("musica");
+
+    function mostrarMensajes() {
+      if (index < mensajes.length) {
+        mensajeDiv.textContent = "";
+        let texto = mensajes[index];
+        let i = 0;
+        const escribir = setInterval(() => {
+          mensajeDiv.textContent += texto[i];
+          i++;
+          if (i === texto.length) {
+            clearInterval(escribir);
+            index++;
+            setTimeout(mostrarMensajes, 2000);
+          }
+        }, 100);
+      } else {
+        botonesDiv.style.display = "flex";
+      }
+    }
+
+    function llover() {
+      const elementos = ["🌻", "Te amooooo ❤️", "Loveeeeeeee❤️"];
+      for (let i = 0; i < 20; i++) {
+        let item = document.createElement("div");
+        item.classList.add("lluvia");
+        item.textContent = elementos[Math.floor(Math.random() * elementos.length)];
+        item.style.left = Math.random() * window.innerWidth + "px";
+        item.style.top = "-50px";
+        item.style.fontSize = (Math.random() * 2 + 1) + "em";
+        document.body.appendChild(item);
+
+        setTimeout(() => item.remove(), 6000);
+      }
+    }
+
+    function acepto() {
+      mensajeDiv.textContent = "🌻Sabía que dirías que sí Te amo 🌻 💖";
+      botonesDiv.style.display = "none";
+      musica.play();
+      setInterval(llover, 800);
+    }
+
+    function rechazo() {
+      mensajeDiv.textContent = " igual siempre te amaré mi amor 🌻";
+      botonesDiv.style.display = "none";
+    }
+
+    mostrarMensajes();
+  </script>
+</body>
+</html>

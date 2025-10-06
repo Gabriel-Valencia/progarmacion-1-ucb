@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suma de Números Pares</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #004e92, #000428);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(0,0,0,0.3);
+      width: 100%;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .card {
+      background: #fff;
+      color: #222;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+      width: 420px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    input {
+      padding: 0.8rem;
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #004e92;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    input:focus {
+      outline: none;
+      border-color: #ffcc00;
+      box-shadow: 0 0 8px #ffcc00;
+    }
+    button {
+      background: #ffcc00;
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #222;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #e6b800;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .resultado {
+      margin-top: 1.5rem;
+      text-align: left;
+      font-size: 1rem;
+      color: #222;
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 12px;
+      border-left: 6px solid #004e92;
+    }
+    .resultado li {
+      margin: 0.5rem 0;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>✨ Suma de Números Pares ✨</header>
+  
+  <div class="card">
+    <input type="number" id="limite" placeholder="Ingresa el límite (ej: 50)" value="50">
+    <button onclick="calcularPares()">Calcular</button>
+    
+    <ul class="resultado" id="salida"></ul>
+  </div>
+
+  <script>
+    function calcularPares() {
+      const limite = parseInt(document.getElementById("limite").value);
+      if (isNaN(limite) || limite < 2) {
+        document.getElementById("salida").innerHTML = "<li>⚠️ Ingresa un número válido mayor a 1.</li>";
+        return;
+      }
+
+      const pares = [];
+      for (let i = 2; i <= limite; i += 2) {
+        pares.push(i);
+      }
+
+      const suma = pares.reduce((a, b) => a + b, 0);
+
+      document.getElementById("salida").innerHTML = `
+        <li><b>🔹 Pares:</b> ${pares.join(", ")}</li>
+        <li><b>✅ Suma de números pares entre 1 y ${limite}:</b> <span style="color:#004e92; font-weight:bold">${suma}</span></li>
+      `;
+    }
+  </script>
+</body>
+</html>
+

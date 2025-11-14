@@ -1,141 +1,146 @@
-// FUNCIONES DE MATRICES (EJERCICIOS 1–11)
-// Todas las matrices son de 10 filas × 9 columnas
+class Matrix {
+  rows;
+  cols;
+  data;
 
-function crearMatriz(filas = 10, columnas = 9, valor = 0) {
-  return Array.from({ length: filas }, () => Array(columnas).fill(valor));
-}
+  constructor(rowsParam, colsParam, defaultValue) {
+    this.rows = rowsParam;
+    this.cols = colsParam;
+    this.data = [];
 
-// Ejercicio 1: Cuadrado Relleno
-function matrizEj1() {
-  return crearMatriz(10, 9, 1);
-}
-
-// Ejercicio 2: Marco Interno
-function matrizEj2() {
-  const m = crearMatriz();
-  for (let i = 0; i < 10; i++) {
-    for (let j = 0; j < 9; j++) {
-      m[i][j] = (i === 0 || i === 9 - 1 || j === 0 || j === 9 - 1) ? 0 : 1;
+    for (let i = 0; i < rowsParam; i++) {
+      const rowTemp = [];
+      for (let j = 0; j < colsParam; j++) {
+        rowTemp.push(defaultValue);
+      }
+      this.data.push(rowTemp);
     }
   }
-  return m;
-}
 
-// Ejercicio 3: Cruces
-function matrizEj3() {
-  const m = crearMatriz();
-  const midFila = Math.floor(10 / 2) - 1; // índice 4
-  const midCol = Math.floor(9 / 2);       // índice 4
-  for (let i = 0; i < 10; i++) {
-    for (let j = 0; j < 9; j++) {
-      if (i === midFila || j === midCol) m[i][j] = 1;
+  //Función de validacion de rango valido en la matriz
+  isValidPosition(row, col) {
+    return row >= 0 && row < this.rows && col >= 0 && col < this.cols;
+  }
+
+  setValue(row, col, value) {
+    //if (isValidPosition(row, col)) {
+    this.data[row][col] = value;
+    //}
+  }
+
+  getValue(row, col) {
+    if (this.isValidPosition(row, col)) {
+      return this.data[row][col];
+    } else {
+      return null
     }
   }
-  return m;
-}
 
-// Ejercicio 4: Bordes y Diagonales
-function matrizEj4() {
-  const m = crearMatriz();
-  const filas = 10, cols = 9;
-  for (let i = 0; i < filas; i++) {
-    for (let j = 0; j < cols; j++) {
-      if (i === 0 || i === filas - 1 || j === 0 || j === cols - 1) {
-        m[i][j] = 1; // Bordes
-      } else if (i === j || i + j === cols - 1) {
-        m[i][j] = 2; // Diagonales dentro del área interna
+  fillRandom(min, max) {
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        const random = Math.floor(Math.random() * (max - min + 1)) + min;
+        this.data[i][j] = random;
       }
     }
   }
-  return m;
-}
 
-// Ejercicio 5: Bandera (3 franjas horizontales)
-function matrizEj5() {
-  const m = crearMatriz();
-  for (let i = 0; i < 10; i++) {
-    const val = i < 3 ? 1 : i < 6 ? 2 : 0;
-    for (let j = 0; j < 9; j++) {
-      m[i][j] = val;
+  ejercicioClase() {
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        this.data[i][j] = (j % 3) + (i * 3 + 1);
+      }
     }
   }
-  return m;
-}
-
-// Ejercicio 6: Relleno Alterno
-function matrizEj6() {
-  const m = crearMatriz();
-  for (let i = 0; i < 10; i++) {
-    m[i].fill(i % 2 === 0 ? 1 : 0);
-  }
-  return m;
-}
-
-// Ejercicio 7: Zig-Zag Horizontal (Diagonal principal)
-function matrizEj7() {
-  const m = crearMatriz();
-  const min = Math.min(10, 9);
-  for (let i = 0; i < min; i++) {
-    m[i][i] = 1;
-  }
-  return m;
-}
-
-// Ejercicio 8: Relleno en Espiral (ajustado a 10×9)
-function matrizEj8() {
-  const m = crearMatriz();
-  const filas = 10, cols = 9;
-
-  // Capa exterior
-  for (let j = 0; j < cols; j++) m[0][j] = 1;
-  for (let i = 1; i < filas - 1; i++) m[i][cols - 1] = 1;
-  for (let j = 0; j < cols; j++) m[filas - 1][j] = 1;
-  for (let i = 1; i < filas - 1; i++) m[i][0] = 1;
-
-  // Capas internas (adaptadas visualmente)
-  for (let j = 2; j < cols - 1; j++) m[2][j] = 1;
-  for (let j = 2; j < cols - 1; j++) m[4][j] = 1;
-  for (let j = 2; j < cols - 1; j++) m[6][j] = 1;
-
-  m[1][cols - 2] = 1;
-  m[3][2] = 1; m[3][cols - 2] = 1;
-  m[5][2] = 1; m[5][cols - 2] = 1;
-  m[7][1] = 1; m[7][cols - 2] = 1;
-  m[8][cols - 2] = 1;
-
-  return m;
-}
-
-// Ejercicio 9: Triángulo Superior Izquierdo
-function matrizEj9() {
-  const m = crearMatriz();
-  for (let i = 0; i < 10; i++) {
-    for (let j = 0; j <= i && j < 9; j++) {
-      m[i][j] = 1;
+  
+  ejercicio2() {
+    console.log("entor al ejercicio2")
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        if (i === 0 || j === 0 || i === 9 || j === 9) {
+          this.data[i][j] = 0;
+        }
+        else {
+          this.data[i][j] = 1;
+        }
+      }
     }
   }
-  return m;
-}
+  ejercicio3() {
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
 
-// Ejercicio 10: Triángulo Inferior Derecho
-function matrizEj10() {
-  const m = crearMatriz();
-  for (let i = 0; i < 10; i++) {
-    for (let j = 9 - i - 1; j < 9; j++) {
-      if (j >= 0) m[i][j] = 1;
+        var mitadColumna = Math.floor(this.cols / 2);
+        var mitadFilas = Math.floor(this.rows / 2);
+        if (i === mitadFilas || j === mitadColumna) {
+          this.data[i][j] = 1;
+        }
+      }
     }
   }
-  return m;
-}
 
-// Ejercicio 11: Cuadrícula
-function matrizEj11() {
-  const m = crearMatriz();
-  const filas = 10, cols = 9;
-  for (let i = 0; i < filas; i++) {
-    for (let j = 0; j < cols; j++) {
-      if (i % 2 === 0 || j === 0 || j === cols - 1) m[i][j] = 1;
+  ejercicio4() {
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        if (i === 0 || j === 0 || i === 9 || j === 9) {
+          this.data[i][j] = 1;
+        }
+        else {
+          if (i === j || i + j === 9) {
+            this.data[i][j] = 2;
+
+          }
+          else {
+            this.data[i][j] = 0;
+          }
+        }
+      }
     }
   }
-  return m;
+
+
+  
+  ejercicio5(){
+  if (this.rows === 0 || this.cols === 0) return;
+  
+  const originalRows = this.rows;
+  const originalCols = this.cols;
+  const rotatedData = [];
+
+  for (let j = 0; j < originalCols; j++) {
+    const newRow = [];
+    for (let i = originalRows - 1; i >= 0; i--) { 
+      newRow.push(this.data[i][j]); 
+    }
+    rotatedData.push(newRow);
+  }
+  this.rows = originalCols;
+  this.cols = originalRows;
+  this.data = rotatedData;
+  }
+
+
+
+  
+
+  toString() {
+    return this.data.map(row => row.join('\t')).join('\n');
+  }
+
+    // Método: rellenar la matriz con nombres de imágenes (array de strings)
+  fillFromAssets(imageNames) {
+    let index = 0;
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        if (index < imageNames.length) {
+          // Extraer número del nombre de archivo (ej: "img_5.png" → 5)
+          const match = imageNames[index].match(/\d+/);
+          this.data[i][j] = match ? parseInt(match[0]) : imageNames[index];
+          index++;
+        } else {
+          this.data[i][j] = null; // si no hay más imágenes
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,99 @@
+
+/* styles.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  background-image: url('assets/dungeon_bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main.canvas-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative; /* overlays encima del canvas */
+}
+
+canvas#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+/* Overlays (menú / win / lose) */
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  background-color: rgba(0,0,0,0.95);
+  color: #00ff41;
+  font-family: 'Courier New', Courier, monospace;
+  z-index: 10;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.overlay h2 { color: #00ff41; text-shadow: 0 0 10px #00ff41; }
+.hidden { display: none !important; }
+
+#start-form, #lose-screen, #win-screen {
+  margin-top: 20px;
+  width: 90%; max-width: 400px;
+}
+
+#start-form label { margin-bottom: 5px; display: block; }
+
+#start-form input {
+  padding: 12px; margin-bottom: 15px; font-size: 1.1em;
+  border: 1px solid #00ff41; border-radius: 3px; width: 100%;
+  background-color: rgba(0,31,0,0.8); color: #00ff41; text-align: center;
+}
+
+#start-form button, #lose-screen button, #win-screen button {
+  padding: 10px 20px; font-size: 1.2em; cursor: pointer;
+  background-color: #00ff41; color: #000; border: none; border-radius: 5px;
+  margin-top: 15px; font-weight: bold; transition: all 0.2s;
+}
+
+#start-form button:hover, #lose-screen button:hover, #win-screen button:hover {
+  background-color: #33ff66; box-shadow: 0 0 15px #33ff66; transform: scale(1.05);
+}
+
+#records-list {
+  list-style: none; padding: 0; margin-top: 15px; text-align: left; width: 100%;
+}
+
+#records-list li {
+  display: flex; justify-content: space-between; padding: 5px 0;
+  border-bottom: 1px dashed rgba(0,255,65,0.3);
+}
+
+#records-list li:last-child { border-bottom: none; }
+#records-list strong { font-weight: normal; }
+
+#win-message, #lose-message { font-size: 1.2em; margin: 15px 0; }
+
+/* Se eliminaron estilos del HUD de corazones */

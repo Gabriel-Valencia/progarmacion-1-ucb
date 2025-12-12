@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TankShoot 2D</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="canvas-area">
+  <div class="canvas-wrapper">
+      <canvas id="gameCanvas"></canvas>
+    
+      <div id="start-menu" class="overlay">
+        <h2>TankShoot 2D: Matrix Edition</h2>
+        <form id="start-form">
+          <label for="player-name">Introduce tu nombre de Operador:</label>
+          <input type="text" id="player-name" required maxlength="15" placeholder="Neo, Morpheus, Trinity...">
+          <button type="submit">ACCEDER (Nivel 1)</button>
+        </form>
+      
+        <hr> <h3>🏆 Récords de la Matriz (Mejor Tiempo)</h3>
+        <ul id="records-list">
+          <li>Cargando récords...</li>
+        </ul>
+      </div>
+
+      <div id="lose-screen" class="overlay hidden">
+        <h2>CONEXIÓN PERDIDA 💀</h2>
+        <p id="lose-message">El Agente te ha eliminado.</p>
+        <button id="restart-button-lose">REINICIAR SIMULACIÓN</button>
+      </div>
+
+      <div id="win-screen" class="overlay hidden">
+        <h2 id="win-title">¡NIVEL DESPEJADO! 🎉</h2>
+        <p id="win-message">Tiempo registrado: <span id="final-time">--</span> segundos.</p>
+        <button id="next-level-button">SIGUIENTE NIVEL</button>
+        <button id="restart-button-win" class="hidden">INICIAR NUEVA PARTIDA</button>
+      </div>
+
+  </div>
+<audio id="bgm" src="C:\Users\Carlos\OneDrive\Desktop\progra 1\game_temp\assets\sounds\03 Cicatrix (Scarred Womb).mp3"></audio>
+
+  <script src="matrix.js"></script>
+  <script src="main.js"></script>
+  
+  <script src="player.js"></script> 
+  <script src="bullet.js"></script>
+  <script src="enemy.js"></script>
+
+  <script src="renderer.js"></script> <script src="game.js"></script> 
+  
+  <script src="app.js"></script> 
+
+</body>
+</html>

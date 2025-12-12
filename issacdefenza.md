@@ -4,15 +4,13 @@
 
 ### Integrantes:
 
--   Isaac
--   Compañero
+- Carlos lopez 
+- Jorge Gabriel Valencia Villarroel 
 
 **Asignatura:** Programación 1\
 **Carrera:** Ingeniería Industrial\
 **Docente:** Eddy Escalante U.\
 **Fecha de presentación:** 12/12/2025
-
-------------------------------------------------------------------------
 
 # 2. Introducción
 
@@ -28,8 +26,6 @@ Este proyecto permite comprender conceptos como manejo de eventos,
 ciclos de renderizado, colisiones, lógica de niveles, así como la
 comunicación entre software y hardware físico mediante el DOBOT,
 mostrando la importancia de la automatización dentro de la programación.
-
-------------------------------------------------------------------------
 
 # 3. Desarrollo del Proyecto
 
@@ -75,8 +71,6 @@ Si supera el nivel final, aparece **"Ganador"**.
 -   **Derrota:** perder la vida del personaje.\
 -   **Pantallas finales:** "Ganador" y "Perdiste".
 
-------------------------------------------------------------------------
-
 ## 3.1.1 Niveles del videojuego
 
 ### Nivel 1: Fácil
@@ -94,8 +88,6 @@ Si supera el nivel final, aparece **"Ganador"**.
 -   Muchos enemigos.\
 -   Mayor velocidad y agresividad.
 
-------------------------------------------------------------------------
-
 # 3.2 Herramientas Utilizadas
 
 -   JavaScript\
@@ -103,8 +95,6 @@ Si supera el nivel final, aparece **"Ganador"**.
 -   Visual Studio Code\
 -   DobotStudio Pro\
 -   GitHub
-
-------------------------------------------------------------------------
 
 # 3.3 Integración con el DOBOT MG400
 
@@ -114,7 +104,7 @@ Si supera el nivel final, aparece **"Ganador"**.
 2.  Abrir DobotStudio Pro.\
 3.  Configurar movimientos del efector para presionar teclas.\
 4.  Calibrar posiciones exactas.\
-5.  Crear macros para izquierda, derecha y espacio.
+5.  Crear macros para izquierda, derecha, ariba , avajo y espacio.
 
 ### Funciones controladas por el DOBOT
 
@@ -128,8 +118,6 @@ Si supera el nivel final, aparece **"Ganador"**.
 -   La precisión depende de la calibración.\
 -   El tiempo de reacción del robot influye en evasión y ataque.
 
-------------------------------------------------------------------------
-
 # 3.4 Organización del Trabajo
 
 -   **Isaac:** programación del juego, niveles, disparo automático y
@@ -137,8 +125,6 @@ Si supera el nivel final, aparece **"Ganador"**.
 -   **Compañero:** configuración del DOBOT MG400, integración y
     pruebas.\
 -   **GitHub:** repositorio con código y estructura por carpetas.
-
-------------------------------------------------------------------------
 
 # 4. Resultados
 
@@ -153,8 +139,6 @@ Si supera el nivel final, aparece **"Ganador"**.
 -   Enemigos generados correctamente.\
 -   Cambios de nivel funcionales.\
 -   DOBOT controla flechas y espacio exitosamente.
-
-------------------------------------------------------------------------
 
 # 5. Conclusiones y Lecciones Aprendidas
 
@@ -185,8 +169,6 @@ Si supera el nivel final, aparece **"Ganador"**.
 -   Mejorar animaciones.\
 -   Añadir más enemigos o jefes.\
 -   Hacer un menú más completo.
-
-------------------------------------------------------------------------
 
 # 6. Anexos
 
@@ -223,8 +205,5 @@ function collision(a, b) {
            a.y < b.y + b.height &&
            a.y + a.height > b.y;
 }
-```
-
-------------------------------------------------------------------------
 
 # Fin del Informe
